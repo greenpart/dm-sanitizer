@@ -1,0 +1,18 @@
+== 0.1.1 2009-06-01
+
+* 2 enhancements
+  * Change mode options syntax
+  * Raise errors on undefined sanitization mode assigning
+
+* 1 bug fix
+  * Don't sanitize clean values in old records
+
+== 0.0.2 2009-05-30
+
+* 1 bug fix:
+  * Don't sanitize nil and empty properties
+
+== 0.0.1 2009-05-29
+
+* 1 major enhancement:
+  * Initial release

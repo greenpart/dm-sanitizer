@@ -1,0 +1,6 @@
+pkg
+pkg/*
+doc
+coverage
+*/coverage
+*.db
