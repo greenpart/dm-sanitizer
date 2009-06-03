@@ -19,7 +19,8 @@ module DataMapper
           :basic        => Sanitize::Config::BASIC,
           :relaxed      => Sanitize::Config::RELAXED
         },
-        :default_mode   => :default
+        :default_mode   => :default,
+        :with_dirty     => false
       }
     end
     module_function :default_options
@@ -82,7 +83,7 @@ module DataMapper
           property_name = property.name.to_sym
           
           next unless property.type == String || property.type == DataMapper::Types::Text
-          next if !new_record? && !attribute_dirty?(property.name.to_sym)
+          next if !new_record? && !options[:with_dirty] && !attribute_dirty?(property.name.to_sym)
           next if options[:exclude] && options[:exclude].include?(property_name)
           
           property_mode = options[:modes] ? options[:modes][property_name] || options[:default_mode] : options[:default_mode]

@@ -101,6 +101,15 @@ if HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES
       @object.title = 'Really new <strong>value</strong>'
       @object.save
     end
+    
+    it "should_receive sanitize dirty properties if this option forced" do
+      @object.class.sanitize :with_dirty => true
+      @object.should_receive(:sanitize_property!).with(:title,anything).twice
+      @object.should_receive(:sanitize_property!).with(:story,anything).twice
+      @object.save
+      @object.title = 'Really new <strong>value</strong>'
+      @object.save
+    end
   end
   
   describe "DataMapper::Model sanitize_property! method" do

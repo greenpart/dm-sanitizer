@@ -4,5 +4,4 @@ TODO list
 * add options for before :valid? hooking
 * add options for redefining properties filtering method
 * add spec heplers for testing property sanitization options
-* add possibility for sanitizing dirty properties
 * validate options

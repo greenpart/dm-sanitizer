@@ -1,3 +1,8 @@
+== 0.1.2 2009-06-03
+
+* 1 enhancement
+  * Sanitize dirty properties if you want (:with_dirty => true)
+
 == 0.1.1 2009-06-01
 
 * 2 enhancements
