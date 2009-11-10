@@ -45,7 +45,7 @@ module DataMapper
         remap_sanitization_modes!
         check_sanitization_modes
         
-        before :save, :sanitize! unless hooks_with_scope(:instance)[:save][:before].include?({:name => :sanitize!, :from => self})
+        before :save, :sanitize! unless hooks_with_scope(:instance)[:update_hook][:before].include?({:name => :sanitize!, :from => self})
       end
       
       def disable_sanitization
@@ -83,7 +83,7 @@ module DataMapper
           property_name = property.name.to_sym
           
           next unless property.type == String || property.type == DataMapper::Types::Text
-          next if !new_record? && !options[:with_dirty] && !attribute_dirty?(property.name.to_sym)
+          next if !new? && !options[:with_dirty] && !attribute_dirty?(property.name.to_sym)
           next if options[:exclude] && options[:exclude].include?(property_name)
           
           property_mode = options[:modes] ? options[:modes][property_name] || options[:default_mode] : options[:default_mode]
@@ -109,4 +109,4 @@ module DataMapper
   end
 end
 
-DataMapper::Resource.append_inclusions DataMapper::Sanitizer
+DataMapper::Model.append_inclusions DataMapper::Sanitizer
