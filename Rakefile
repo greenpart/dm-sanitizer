@@ -79,3 +79,34 @@ begin
 rescue LoadError
   # rspec not installed
 end
+
+begin
+  gem 'jeweler', '~> 1.4'
+  require 'jeweler'
+
+  Jeweler::Tasks.new do |gem|
+    gem.name = GEM_NAME
+    gem.summary = PROJECT_SUMMARY
+    gem.description = PROJECT_DESCRIPTION
+    gem.email = EMAIL
+    gem.homepage = PROJECT_URL
+    gem.authors = [ AUTHOR ]
+
+    gem.rubyforge_project = PROJECT_NAME
+
+    gem.add_dependency 'dm-core', '>= 0.9.4'
+    gem.add_dependency 'sanitize', '>= 1.0.0'
+
+    gem.add_development_dependency 'rspec', '~> 1.3'
+    gem.add_development_dependency 'jeweler', '~> 1.4'
+  end
+
+  Jeweler::GemcutterTasks.new
+
+  FileList['tasks/**/*.rake'].each { |task| import task }
+
+rescue LoadError => e
+  puts 'Jeweler (or a dependency) not available. Install it with: gem install jeweler'
+  puts '-----------------------------------------------------------------------------'
+  puts e.backtrace # Let's help by actually showing *which* dependency is missing
+end
