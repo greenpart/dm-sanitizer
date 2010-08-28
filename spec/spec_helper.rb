@@ -1,10 +1,10 @@
 require 'pathname'
 require 'rubygems'
  
-gem 'rspec', '~>1.2'
+gem 'rspec', '~>1.3'
 require 'spec'
  
-gem 'dm-core', '>= 0.9.4'
+gem 'dm-core', '= 0.10.1'
 require 'dm-core'
 
 gem 'sanitize', '>= 1.0.0'

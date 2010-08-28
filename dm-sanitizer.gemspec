@@ -5,39 +5,37 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dm-sanitizer}
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sergei Zimakov"]
-  s.date = %q{2010-08-25}
+  s.date = %q{2010-08-28}
   s.description = %q{DataMapper plugin for automated/configurable user input sanitization.}
   s.email = %q{zimakov@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.txt",
+     "README.rdoc",
      "TODO"
   ]
   s.files = [
     ".gitignore",
      "History.txt",
      "LICENSE",
-     "Manifest.txt",
-     "README.txt",
+     "README.rdoc",
      "Rakefile",
      "TODO",
      "VERSION",
+     "dm-sanitizer.gemspec",
      "lib/dm-sanitizer.rb",
-     "lib/dm-sanitizer/version.rb",
      "spec/dm-sanitizer_spec.rb",
      "spec/spec.opts",
-     "spec/spec_helper.rb",
-     "tasks/hoe.rb"
+     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/pat/dm-sanitizer/tree/master/}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{dm-sanitizer}
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{DataMapper plugin for automated/configurable user input sanitization.}
   s.test_files = [
     "spec/dm-sanitizer_spec.rb",
@@ -48,19 +46,19 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<dm-core>, [">= 0.9.4"])
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<dm-core>, [">= 0.10.1"])
       s.add_runtime_dependency(%q<sanitize>, [">= 1.0.0"])
       s.add_development_dependency(%q<rspec>, ["~> 1.3"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.4"])
     else
-      s.add_dependency(%q<dm-core>, [">= 0.9.4"])
+      s.add_dependency(%q<dm-core>, [">= 0.10.1"])
       s.add_dependency(%q<sanitize>, [">= 1.0.0"])
       s.add_dependency(%q<rspec>, ["~> 1.3"])
       s.add_dependency(%q<jeweler>, ["~> 1.4"])
     end
   else
-    s.add_dependency(%q<dm-core>, [">= 0.9.4"])
+    s.add_dependency(%q<dm-core>, [">= 0.10.1"])
     s.add_dependency(%q<sanitize>, [">= 1.0.0"])
     s.add_dependency(%q<rspec>, ["~> 1.3"])
     s.add_dependency(%q<jeweler>, ["~> 1.4"])

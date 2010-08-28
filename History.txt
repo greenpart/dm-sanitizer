@@ -1,3 +1,7 @@
+== 0.1.4 2010-08-28
+* 1 enhancement
+  * integrated with jeweler
+
 == 0.1.3 2009-11-10
 
 * 1 bug fix

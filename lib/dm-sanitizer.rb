@@ -1,9 +1,6 @@
-require 'pathname'
 require 'rubygems'
 
-require Pathname(__FILE__).dirname.expand_path + 'dm-sanitizer/version'
-
-gem 'dm-core', '>= 0.9.4'
+gem 'dm-core', '>= 0.10.1'
 require 'dm-core'
 
 gem 'sanitize', '>= 1.0.0'
