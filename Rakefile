@@ -17,11 +17,12 @@ begin
 
     gem.rubyforge_project = 'dm-sanitizer'
 
-    gem.add_dependency 'dm-core', '>= 0.10.1'
-    gem.add_dependency 'sanitize', '>= 1.0.0'
+    gem.add_dependency 'dm-core', '>= 1.0'
+    gem.add_dependency 'sanitize', '>= 1.0'
 
     gem.add_development_dependency 'rspec', '~> 1.3'
     gem.add_development_dependency 'jeweler', '~> 1.4'
+    gem.add_development_dependency 'dm-migrations', '>= 1.0'
   end
 
   Jeweler::GemcutterTasks.new

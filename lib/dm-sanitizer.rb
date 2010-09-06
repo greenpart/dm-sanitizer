@@ -1,6 +1,6 @@
 require 'rubygems'
 
-gem 'dm-core', '>= 0.10.1'
+gem 'dm-core', '>= 1.0'
 require 'dm-core'
 
 gem 'sanitize', '>= 1.0.0'
@@ -38,11 +38,10 @@ module DataMapper
           end
         RUBY
         
+        before :save, :sanitize! unless self.sanitization_options
         self.sanitization_options = DataMapper::Sanitizer.default_options.merge(options)
         remap_sanitization_modes!
         check_sanitization_modes
-        
-        before :save, :sanitize! unless hooks_with_scope(:instance)[:update_hook][:before].include?({:name => :sanitize!, :from => self})
       end
       
       def disable_sanitization
@@ -79,7 +78,7 @@ module DataMapper
         self.class.properties.each do |property|
           property_name = property.name.to_sym
           
-          next unless property.type == String || property.type == DataMapper::Types::Text
+          next unless [DataMapper::Property::String, DataMapper::Property::Text].include?(property.class)
           next if !new? && !options[:with_dirty] && !attribute_dirty?(property.name.to_sym)
           next if options[:exclude] && options[:exclude].include?(property_name)
           

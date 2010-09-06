@@ -4,8 +4,9 @@ require 'rubygems'
 gem 'rspec', '~>1.3'
 require 'spec'
  
-gem 'dm-core', '= 0.10.1'
+gem 'dm-core', '>= 1.0'
 require 'dm-core'
+require 'dm-migrations'
 
 gem 'sanitize', '>= 1.0.0'
 require 'sanitize'
