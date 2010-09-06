@@ -17,7 +17,8 @@ module DataMapper
           :relaxed      => Sanitize::Config::RELAXED
         },
         :default_mode   => :default,
-        :with_dirty     => false
+        :with_dirty     => false,
+        :property_types => [DataMapper::Property::String, DataMapper::Property::Text]
       }
     end
     module_function :default_options
@@ -78,7 +79,7 @@ module DataMapper
         self.class.properties.each do |property|
           property_name = property.name.to_sym
           
-          next unless [DataMapper::Property::String, DataMapper::Property::Text].include?(property.class)
+          next unless options[:property_types].include?(property.class)
           next if !new? && !options[:with_dirty] && !attribute_dirty?(property.name.to_sym)
           next if options[:exclude] && options[:exclude].include?(property_name)
           

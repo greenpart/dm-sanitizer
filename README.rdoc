@@ -10,9 +10,9 @@ This package lets DataMapper properties be easily sanitized using Sanitize.
 
 === Features
 
-* Sanitize String based properties by default
-* Lets choose sanitization mode on per property basis
-* Allows user defined sanitization modes
+* Sanitize String and Text properties by default (configurable)
+* Per property sanitization modes
+* User defined sanitization modes
 
 === problems
 
@@ -22,6 +22,7 @@ This package lets DataMapper properties be easily sanitized using Sanitize.
 
   require 'rubygems'
   require 'dm-core'
+  require 'dm-migrations'
   require 'dm-sanitizer'
 
   DataMapper.setup(:default, 'sqlite3::memory:')
